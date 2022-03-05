@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BE A MEMBER</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="contact-box">
+			<div class="left"></div>
+			<div class="right">
+				<h2>Become a Member</h2>
+                <form action="" method="post">
+					{% csrf_token %}
+				<input type="text" class="field" id="name" placeholder="Username">
+				<span id="username_msg" class="valid" ></span>
+				<input type="email"   class="field" id="email"  placeholder="Your Email">
+				<span  id="email_msg"  class="valid"> </span>
+				<input type="password" id="password"   class="field"  placeholder="password">
+				<span  id="pass_msg"  class="valid"> </span><br><br>
+				<input type="checkbox" id="show"> Show Password <br><br>
+				<button type="submit" id="btnsave" class="btn">Register</button><br><br>
+                <h4>Already a member?<a href="{% url 'login_user' %}" >login here</a></h4>               
+                </form>
+			</div>
+		</div>
+	</div>
+
+
+	
+	<script src="{% static 'js/register.js' %}"></script>
+</body>
+</html>

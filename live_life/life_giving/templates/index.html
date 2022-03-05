@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIFE OF GIVING</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<!--HOME PAGE-->
+<body>
+    <section class="header">
+        <nav>
+            <span class="main-head  "> hello {{request.user}}</span>
+            <a href="" target="_blank"><h5 class="main-head" >LIFE OF GIVING<h5></a>
+            <div class="nav-links" id="navLinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="{% url 'donate_page' %}">DONATE</a></li>
+                    <li><a href="{% url 'raise' %}">RAISE</a></li>
+                    <li><a href="{% url 'about' %}">ABOUT US</a></li>
+                  
+                    <li><a href="{% url 'logout_user' %}">LOGOUT</a></li>                    
+
+
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+        <div class="text-box"><h1>SMALL STEP FOR  A  CHANGE</h1>
+        <p class="title-content">This is platform for those who want to help genuinely the people in a need . Now a days there are very less and genuine platforms which are trying to create a change </p>
+       
+    </div>
+    </section>  
+<!--DONATE PAGE-->
+
+<!--ABOUT PAGE-->
+<section id="section3"class="our-work">
+    <h1>What we do</h1>
+    <p>This paltform is a way to reach the ones who need your and our help so come join us to be a part of this small change to make a big diffrence
+    <div class="work-row">
+        <div class="work-col1">
+            <h3>Small approach to reach everywhere</h3>
+            <p>Our goal is to reach every needy who need our help and to reach every donor who want to help</p>
+        </div>
+        <div class="work-col2">
+            <h3>Taking small step for big change</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit nobis pariatur neque corrupti minus sapiente ad sed non adipisci aperiam.</p>
+        </div>
+    </div>
+    </p>
+</section>
+<!--FOOTER-->
+
+
+
+
+
+
+
+
+
+<!--JAVASCRIPT FOR TOGGLE MENU-->
+<script>
+    var navLinks=document.getElementById("navLinks");
+    function showMenu(){
+        navLinks.style.right="0";
+    }
+    function hideMenu(){
+        navLinks.style.right="-200px";
+    }
+</script>
+</body>
+</html>

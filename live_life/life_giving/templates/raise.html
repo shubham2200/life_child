@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>RAISE</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style2.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0">
+</head>
+<body>
+	<div class="container">
+		<div class="contact-box">
+			<div class="left"></div>
+			<div class="right">
+				<h2>Start a Fundraiser for Free</h2>
+                <form action="" method="post" enctype='multipart/form-data' >
+				{% csrf_token %}
+				<input type="text" name="name" class="field" placeholder="Enter Your Name">
+				<input type="email" name="email" class="field" placeholder="Enter Your Email">
+				<input type="text" name="number" class="field" placeholder="Enter your Phone Number">
+				<input type="text" name="cause" class="field" placeholder="Enter your cause">
+				{% comment %} <h5>give your document proof below</h5> {% endcomment %}
+				<input type="file" name="file_up" class="field">
+				<textarea placeholder="Cause description" name="description" class="field"></textarea>
+				<button type="submit" class="btn">Request</button>
+                </form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
