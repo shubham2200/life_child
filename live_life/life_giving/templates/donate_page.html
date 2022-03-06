@@ -9,7 +9,9 @@
     <link rel="stylesheet"href="{% static 'css/style.css' %}">
 </head>
 <body>
+    
     <section class="donate" id="section2">
+        
         <h1>Charities to be done</h1>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem nisi eius odit aliquid culpa eum voluptatibus dolorem. Repudiandae, corrupti voluptatibus?</p>
         <div class="row">
@@ -18,7 +20,7 @@
                 <input type="hidden" >
                 <h3>{{data.cause}}</h3>
                 <p>{{data.cause_description}}</p>
-                <a href="{% url 'donate_form' data.id %}" id={{data.id}}  name ="id" class="d-btn">{{data.name}}</a>
+                <a href="{% url 'donate_form' data.id %}" id={{data.id}}  name ="id" class="d-btn">Donate</a>
  
             </div>
             {% endfor %}  

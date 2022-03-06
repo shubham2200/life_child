@@ -2,6 +2,7 @@ from django.contrib import admin
 from .models import Raise_user  ,Donate_fund
 # Register your models here.
 class Raise_Admin(admin.ModelAdmin):
+    # filed = ['doc_file']
     list_display = ('id', 'name' ,'email' , 'date')
 
 

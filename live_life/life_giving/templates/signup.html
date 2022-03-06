@@ -14,13 +14,13 @@
 			<div class="left"></div>
 			<div class="right">
 				<h2>Become a Member</h2>
-                <form action="" method="post">
-					{% csrf_token %}
-				<input type="text" class="field" id="name" placeholder="Username">
+                <form action="" method="post" >
+				{% csrf_token %}
+				<input type="text" class="field" id="name" name="name" placeholder="Username">
 				<span id="username_msg" class="valid" ></span>
-				<input type="email"   class="field" id="email"  placeholder="Your Email">
+				<input type="email"   class="field" id="email" name='email'  placeholder="Your Email">
 				<span  id="email_msg"  class="valid"> </span>
-				<input type="password" id="password"   class="field"  placeholder="password">
+				<input type="password" id="password"   class="field" name='password' placeholder="password">
 				<span  id="pass_msg"  class="valid"> </span><br><br>
 				<input type="checkbox" id="show"> Show Password <br><br>
 				<button type="submit" id="btnsave" class="btn">Register</button><br><br>

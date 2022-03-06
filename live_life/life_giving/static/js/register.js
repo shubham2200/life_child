@@ -8,8 +8,8 @@ $(document).on('click', '#show', function () {
 })
 
 
-$(document).on('click', '#btnsave', function (event) {
-    event.preventDefault();
+$(document).on('click', '#btnsave', function () {
+    
     let name = $('#name').val();
 
     let email = $('#email').val();
@@ -19,7 +19,6 @@ $(document).on('click', '#btnsave', function (event) {
 
     let csr = $('input[name= csrfmiddlewaretoken]').val();
 
-    var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;    
     if (name == '') {
         console.log('please enter the username')
         $('#username_msg').html('Please enter username')
@@ -36,7 +35,8 @@ $(document).on('click', '#btnsave', function (event) {
         console.log(name);
         console.log(email);
         console.log(password);
-        my_obj = { name:name , email:email , password:password ,  csrfmiddlewaretoken: csr }
+        let my_obj = { name:name , email:email , password:password ,  csrfmiddlewaretoken: csr }
+        console.log(my_obj);
         $.ajax({
             url: '/signup/',
             method: 'POST',

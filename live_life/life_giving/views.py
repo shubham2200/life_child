@@ -12,40 +12,20 @@ from django.core.files.storage import FileSystemStorage
 from .models import *
 
 
-@login_required(login_url="login_user")
-def index(request):
-    return render(request, 'index.html')
-
-
-@login_required(login_url="login_user")
-def donate(request ):
-    try:
-        data_fund = Raise_user.objects.all()
-        return render(request, 'donate_page.html', {'fund': data_fund})
-    except Exception as e:
-        print('abscasc')
-
-
-@login_required(login_url="login_user")
-def about(request):
-    return render(request, 'about.html')
 
 
 @csrf_exempt
 def signup(request):
     if request.method == 'POST':
         print(request.method)
-        username = request.POST.get('name')
-        print(username)
+        name = request.POST.get('name')
         email = request.POST.get('email')
-        print(email)
         password = request.POST.get('password')
-        print(password)
-        if username and email and password:
-            print('yess')
-            user = User(username=username, email=email, password=password)
-            user.save()
-            return redirect('/login_user/')
+        print(name,email,password)
+        user = User(username = name, email=email, password=password)
+        user.save()
+        return redirect('/login_user/')
+
 
     return render(request, 'signup.html')
 
@@ -76,9 +56,36 @@ def login_user(request):
     return render(request, 'login.html')
 
 
+
+@login_required(login_url="login_user")
+def index(request):
+    current_user = request.user
+    user_id = current_user.id
+    print(user_id)
+    return render(request, 'index.html' )
+
+
+@login_required(login_url="login_user")
+def donate(request ):
+    try:
+        data_fund = Raise_user.objects.all()
+        return render(request, 'donate_page.html', {'fund': data_fund})
+    except Exception as e:
+        print('abscasc')
+
+
+
+
+
+
+@login_required(login_url="login_user")
+def about(request):
+    return render(request, 'about.html')
+
+
 def logout_user(request):
     logout(request)
-    return redirect('/')
+    return redirect('/login_user/')
 
 
 @login_required(login_url="login_user")
@@ -100,7 +107,7 @@ def raise_exception(request ):
         time = date.today()
         Raise_user.objects.create(name=uname, email=uemail, date=time, number=unumber,
                                   cause=ucause, doc_file=file_url, cause_description=udescription)
-        return redirect('/index/')
+        return redirect('index')
 
     return render(request, 'raise.html')
 
@@ -127,6 +134,6 @@ def donate_form(request ,id ):
         user = Donate_fund.objects.create( donate_fund = add ,  full_name=fullname, email=email, address=addres,
                                city=city, name_on_card=card_name, card_number=card_number, amount=amount, exp_year=year, cvv=cvv)
         # user.save()
-        return redirect('/index/')
+        return redirect('index')
 
     return render(request, 'donate.html')
